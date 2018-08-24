@@ -25,24 +25,23 @@ module.exports = function(app) {
   });
   app.get("/api/gb/:game", function (req, res) {
     var response = [];
-    console.log(req.params.game);
     gb.games.search(req.params.game, (err, rez, json) => {
-      if (err) throw err;
+      if (err) {throw err;}
       let games = json.results;
-        games.forEach(game => {
-          let newGame = {
-            gameName: game.name,
-            gameBio: game.deck,
-            gamePicture: game.image.original_url,
-            giantbombID: game.guid,
-            gbURL: game.site_detail_url,
-            gameConsole: game.platforms[0].abbreviation,
-          };
-          console.log(typeof game.original_game_rating);
-          response.push(newGame);
+      games.forEach(game => {
+        let newGame = {
+          gameName: game.name,
+          gameBio: game.deck,
+          gamePicture: game.image.original_url,
+          giantbombID: game.guid,
+          gbURL: game.site_detail_url,
+          gameConsole: game.platforms[0].abbreviation,
+        };
+        console.log(typeof game.original_game_rating);
+        response.push(newGame);
 
-        });
-        res.json(response);
+      });
+      res.json(response);
     });
 
   });
