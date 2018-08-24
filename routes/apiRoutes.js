@@ -23,23 +23,23 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
-  app.get("/api/giantbomb/:game", function (req, res) {
+  app.get("/api/gb/:game", function (req, res) {
     var response = [];
     console.log(req.params.game);
     gb.games.search(req.params.game, (err, rez, json) => {
       if (err) throw err;
       let games = json.results;
         games.forEach(game => {
-          debugger;
           let newGame = {
             gameName: game.name,
             gameBio: game.deck,
             gamePicture: game.image.original_url,
             giantbombID: game.guid,
-            gbURL: game.site_detail_url
+            gbURL: game.site_detail_url,
+            gameConsole: game.platforms[0].abbreviation,
           };
+          console.log(typeof game.original_game_rating);
           response.push(newGame);
-          console.log(response);
 
         });
         res.json(response);
