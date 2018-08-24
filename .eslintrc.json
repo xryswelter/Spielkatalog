@@ -2,6 +2,7 @@
     "env": {
         "browser": true,
         "commonjs": true,
+        "es6": true,
         "node": true
     },
     "extends": "prettier",
@@ -9,6 +10,7 @@
         "prettier"
       ],
     "rules": {
+
         "no-duplicate-case":"error",
         "no-empty":"error",
         "no-extra-semi":"error",
