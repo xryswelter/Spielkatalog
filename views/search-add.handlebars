@@ -1,0 +1,22 @@
+        <h1 class="mt-5 mb-4 text-center header">Search for your favorite games</h1>
+        <div class="game-search-bar">
+            <form class="form-inline mt-2 mb-4 justify-content-center">
+                <input class="form-control mr-sm-2" type="text" size="85" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <!-- games list -->
+        <div class="list-group">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                {{#each games}}
+                <div class="media">
+                    <img class="mr-3" src="{{image url}}" alt="Generic placeholder image">
+                    <div class="media-body">
+                      <h5 class="mt-0">{{game title}}</h5>
+                      <p>{{game summary}}</p>
+                      <p><button class="btn btn-outline-danger mt-2" type="submit">Add</button></p>
+                    </div>
+                  </div>
+                  {{/each}}
+            </div>
+          </div>
