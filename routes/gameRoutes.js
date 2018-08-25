@@ -71,8 +71,7 @@ module.exports = function (app) {
           giantbombID: game.guid,
           gbURL: game.site_detail_url,
           gameConsole: game.platforms[0].abbreviation,
-        };
-        console.log(typeof game.original_game_rating);
+        };  
         response.push(newGame);
 
       });
