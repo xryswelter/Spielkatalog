@@ -14,19 +14,17 @@
  <body>
     <header>
         <!-- nav -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top justify-content-between">
             <a class="navbar-brand" href="#">Spielkatalog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="collapse navbar-collapse d-flex align-items-center" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Manage Users</a>
+                        <a class="nav-link" href="user-manager.html">Manage Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Catalog</a>
@@ -35,45 +33,52 @@
             </div>
         </nav>
     </header>
-     <!--page content -->
+     <!-- page content -->
     <main role="main" class="container">
-        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML
-            and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-        <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+        <h1 class="mt-5 mb-4 text-center header">Search for your favorite games</h1>
+        <div class="game-search-bar">
+            <form class="form-inline mt-2 mb-4 justify-content-center">
+                <input class="form-control mr-sm-2" type="text" size="85" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <!-- games list -->
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="media">
-                    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
+                    <img class="mr-3" src="./images/960712-gb.png" alt="Generic placeholder image">
                     <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      <h5 class="mt-0">Tony Hawk's Pro Skater</h5>
+                      Take control of real skaters and perform strings of crazy tricks in the first entry of the long-running Tony Hawk skateboarding series.
+                      <p><button class="btn btn-outline-danger mt-2" type="submit">Add</button></p>
                     </div>
                   </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            </div>
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="media">
-                    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
+                    <img class="mr-3" src="./images/2269420-box_thps2.png" alt="Generic placeholder image">
                     <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      <h5 class="mt-0">Tony Hawk's Pro Skater 2</h5>
+                      Tony Hawk's Pro Skater returns with new levels, skaters, gameplay mechanics (including the introduction of the Manual), and the ability to create custom skaters and levels.
+                      <p><button class="btn btn-outline-danger" type="submit">Add</button></p>
                     </div>
                   </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            </div>
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="media">
-                    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
+                    <img class="mr-3" src="./images/2106407-box_thps2x.png" alt="Generic placeholder image">
                     <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      <h5 class="mt-0">Tony Hawk's Pro Skater 2x</h5>
+                      Following on from the success of THPS2, the original Tony Hawks Pro Skater 2 saw a re-release on the Xbox with additional content and unlockable bonuses, including five new levels and improved graphics.
+                      <p><button class="btn btn-outline-danger" type="submit">Add</button></p>
                     </div>
                   </div>
-            </a>
+            </div>
           </div>
     </main>
      <footer class="footer">
         <div class="container text-center">
-            <span class="text-muted">Copyright &copy; 2018 Spielkatalog - all rights reserved</span>
+            <span class="text-muted">Copyright &copy; 2018 Spielkatalog</span>
         </div>
     </footer>
      <!-- Bootstrap -->
