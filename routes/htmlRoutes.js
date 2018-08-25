@@ -1,4 +1,6 @@
 var db = require("../models");
+var path = require("path");
+
 
 module.exports = function(app) {
   // Load index page
@@ -22,6 +24,12 @@ module.exports = function(app) {
 
   app.get("/add", function(req,res){
     res.render("search-add");
+  });
+
+
+  app.get("/js", function(req,res){
+    console.log("js called");
+    res.sendFile(path.join(__dirname, "../public/js/index.js"));
   });
 
   // Render 404 page for any unmatched routes
