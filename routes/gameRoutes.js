@@ -64,13 +64,27 @@ module.exports = function (app) {
       }
       let games = json.results;
       games.forEach(game => {
+        let platform = "";
+        let bio = "";
+        if (game.platforms === null){
+          platform = "Not Found";
+        }else{
+          platform = game.platforms[0].abbreviation;
+        }
+
+        if(game.deck === null){
+          bio = "No bio provided...";
+        }else{
+          bio = game.deck;
+        }
+
         let newGame = {
           gameName: game.name,
-          gameBio: game.deck,
+          gameBio: bio,
           gamePicture: game.image.original_url,
           giantbombID: game.guid,
           gbURL: game.site_detail_url,
-          gameConsole: game.platforms[0].abbreviation,
+          gameConsole: platform,
         };  
         response.push(newGame);
 
