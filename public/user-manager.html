@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="user-manager.html">Manage Users</a>
+                        <a class="nav-link" href="#">Manage Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Catalog</a>
@@ -35,7 +35,35 @@
     </header>
      <!-- page content -->
     <main role="main" class="container">
-{{{body}}}
+            <div class="row mt-5">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="author-container">
+                            <h1 class="header">Users</h1>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="user-table">
+                                        <th>User</th>
+                                        <th># of Games</th>
+                                        <th>See User's Games</th>
+                                        <th>Add Game</th>
+                                        <th>Delete User</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="form-row">
+                                        <form id="author-form">
+                                            <td colspan="4">
+                                                <input class="form-control" placeholder="Enter a name" id="author-name" type="text" />
+                                            </td>
+                                            <td><button type="submit" class="btn btn-outline-success">Create User</button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
     </main>
      <footer class="footer">
         <div class="container text-center">
