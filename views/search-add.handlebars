@@ -10,10 +10,10 @@
             <div class="list-group-item list-group-item-action flex-column align-items-start">
                 {{#each games}}
                 <div class="media">
-                    <img class="mr-3" src="{{image url}}" alt="Generic placeholder image">
+                    <img class="mr-3" src="{{image.original_url}}" alt="Generic placeholder image">
                     <div class="media-body">
-                      <h5 class="mt-0">{{game title}}</h5>
-                      <p>{{game summary}}</p>
+                      <h5 class="mt-0">{{name}}</h5>
+                      <p>{{deck}}</p>
                       <p><button class="btn btn-outline-danger mt-2" type="submit">Add</button></p>
                     </div>
                   </div>
