@@ -1,13 +1,13 @@
         <h1 class="mt-5 mb-4 text-center header">Search for your favorite games</h1>
         <div class="game-search-bar">
             <form class="form-inline mt-2 mb-4 justify-content-center">
-                <input class="form-control mr-sm-2" type="text" size="85" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" id="gameSearch" type="text" size="85" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="submitButton" type="submit">Search</button>
             </form>
         </div>
         <!-- games list -->
         <div class="list-group">
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="list-group-item list-group-item-action flex-column align-items-start" id="gameList">
                 {{#each games}}
                 <div class="media">
                     <img class="mr-3" src="{{image.original_url}}" alt="Generic placeholder image">

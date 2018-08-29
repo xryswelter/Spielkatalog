@@ -24,8 +24,9 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/gameRoutes")(app);
-require("./routes/htmlRoutes")(app);
 require("./routes/userRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
 
 var syncOptions = { force: false };
 
