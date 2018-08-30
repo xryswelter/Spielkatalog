@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "mysqlroot",
+    "username": "balasher",
+    "password": "3201111",
     "database": "spielkatalog_db",
     "host": "localhost",
     "port": 3306,
