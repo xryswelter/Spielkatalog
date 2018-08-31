@@ -42,6 +42,9 @@ body {
 main {
   margin-bottom: 80px;
 }
+.welcome {
+  color: #8B0CE8;
+}
 .game-search-bar > input {
   max-width: 200px;
 }
