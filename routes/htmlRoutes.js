@@ -3,19 +3,6 @@ var path = require("path");
 
 module.exports = function (app) {
   // Load index page
-<<<<<<< Updated upstream
-  app.get("/", function(req, res) {
-    db.Game.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
-
-  app.get("/users", function(req, res){
-    res.render("manage-users");
-=======
   app.get("/", function (req, res) {
     console.log("root requested");
     res.render("front-page");
@@ -26,20 +13,11 @@ module.exports = function (app) {
       res.render("manage-user");
     });
 
->>>>>>> Stashed changes
 
   });
 
 
   // Load example page and pass in an example by id
-<<<<<<< Updated upstream
-  app.get("/user/:id", function(req, res) {
-    db.Game.findAll({ where: { UserId: req.params.id }, include: [db.User] }).then(function(dbExample) {
-      console.log();
-      res.render("index", {
-        examples: dbExample,
-        msg: dbExample[0].User.name + "'s Games!"
-=======
   app.get("/user/:id", function (req, res) {
     db.Game.findAll({
       where: {
@@ -49,7 +27,6 @@ module.exports = function (app) {
     }).then(function (dbExample) {
       res.render("single-users", {
         games: dbExample
->>>>>>> Stashed changes
       });
     });
   });

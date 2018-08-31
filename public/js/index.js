@@ -256,8 +256,6 @@ $(document).ready(function () {
       .then(getAuthors);
   }
 });
-<<<<<<< Updated upstream
-=======
 
 
 $(document).on("click", ".gameCard", function () {
@@ -284,4 +282,3 @@ $(document).on("click", ".gameCard", function () {
 });
 
 $(".dropdown-toggle").dropdown();
->>>>>>> Stashed changes
