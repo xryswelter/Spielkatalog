@@ -42,6 +42,9 @@ body {
 main {
   margin-bottom: 80px;
 }
+.welcome {
+  color: #8B0CE8;
+}
 .game-search-bar > input {
   max-width: 200px;
 }
@@ -49,6 +52,7 @@ main {
   padding-right: 18px;
   padding-left: 18px;
 }
+<<<<<<< HEAD
 /* Xrys' content */
 h6 > img{
 max-width:25px;
@@ -72,3 +76,5 @@ h5.name, h6.own {
 .mod-btn{
   max-width: 200px;
 }
+=======
+>>>>>>> 923087adf109e2ad6227efc74f5d67a65358c22d
