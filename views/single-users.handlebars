@@ -10,6 +10,10 @@
                 </h6>
                 <h6 class="mt-0">Platform: <span class="platform">{{gameConsole}}</span>
                 </h6>
+                <h6>
+                    <a href="https://www.giantbomb.com/portal-2/3030-21662/" target="_blank">Giantbomb URL</a>
+                </h6>
+
             </p>
         </div>
     </div>
@@ -25,18 +29,47 @@
             </div>
             <div class="modal-body">
                 <img class="modal-image">
-                <div class="text">
+                <div class="holderView">
                     <div class="name"></div>
                     <div class="own"></div>
                     <div class="id"></div>
                     <div class="url"></div>
                     <div class="summary"></div>
                 </div>
+                <div class="holderEdit">
+                    <img class="modal-image1">
+                    <form>
+                        <div class="form-group">
+                            <label for="ID">Giant Bomb ID</label>
+                            <input type="text" readonly class="form-control-plaintext id">
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Name: </label>
+                            <input type="text" class="form-control name1">
+                        </div>
+                        <div class="form-group">
+                            <label for="own">Ownership: </label>
+                            <input type="text" class="form-control own1">
+                        </div>
+                        <div class="form-group">
+                            <label for="url">Url: </label>
+                            <input type="text" class="form-control url1">
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Summary: </label>
+                            <input type="text" class="form-control summary1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
     {{/each}}
