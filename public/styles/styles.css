@@ -36,6 +36,12 @@ body {
 .user-table {
   color: #EFFF0D;
 }
+.user-name {
+  color: #8B0CE8;
+}
+.user-games {
+  color: #8B0CE8;
+}
 .media > img {
   max-width: 100px;
 }
