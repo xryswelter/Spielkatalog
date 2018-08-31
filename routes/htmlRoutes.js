@@ -13,11 +13,7 @@ module.exports = function(app) {
   });
 
   app.get("/users", function(req, res){
-    db.User.findAll({}).then(function(dbUsers){
-      res.render("manage-user", {
-        
-      });
-    });
+    res.render("manage-users");
 
   });
   
