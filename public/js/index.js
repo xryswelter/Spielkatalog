@@ -199,8 +199,8 @@ $(document).ready(function () {
   function createAuthorRow(authorData) {
     var newTr = $("<tr>");
     newTr.data("author", authorData);
-    newTr.append("<td>" + authorData.name + "</td>");
-    newTr.append("<td> " + authorData.Games.length + "</td>");
+    newTr.append("<td class='user-name'>" + authorData.name + "</td>");
+    newTr.append("<td class='user-games'> " + authorData.Games.length + "</td>");
     newTr.append("<td><a href='/user/" + authorData.id + "'>Go to Games</a></td>");
     newTr.append("<td><a href='/user/" + authorData.id + "'>Add A Game</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete User</a></td>");
