@@ -3,6 +3,8 @@ var $gameText = $("#gameSearch");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submitButton");
 var $exampleList = $("#example-list");
+
+var selectedUser = 0;
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -137,6 +139,7 @@ $(document).on("click", ".addButton", function() {
   ${$(this).attr("data-giantbombID")}
   ${$(this).attr("data-gbURL")}
   ${$(this).attr("data-gameConsole")}
+  ${$("#userSelect")}
   
   `);
   let newGame = {
@@ -147,7 +150,7 @@ $(document).on("click", ".addButton", function() {
     giantbombURL: $(this).attr("data-gbURL"),
     gameConsole: $(this).attr("data-gameConsole"),
     ownedStatus: "Owned",
-    UserId: 1
+    UserId: selectedUser
 
   };
 
@@ -162,6 +165,9 @@ $(document).on("click", ".addButton", function() {
 //plagarismo
 
 $(document).ready(function () {
+  $("select").on("change", function () {
+    selectedUser = this.value;
+  });
   // Getting references to the name input and author container, as well as the table body
   var nameInput = $("#author-name");
   var authorList = $("tbody");
@@ -250,3 +256,32 @@ $(document).ready(function () {
       .then(getAuthors);
   }
 });
+<<<<<<< Updated upstream
+=======
+
+
+$(document).on("click", ".gameCard", function () {
+  let id = $(this).attr("data-id");
+  console.log(id);
+  $.ajax({
+    type: "GET",
+    url: `/api/games/${id}`
+  }).then(results => {
+    console.log(results);
+    let name = results.gameName;
+    let summary = results.summary;
+    let pic = results.gamePicture;
+    let id = results.id;
+    let url = results.giantbombURL;
+    let ownership = results.ownedStatus;
+    $(".modal-image").attr("src", pic).attr("placeholder", pic);
+    $(".name").text(name).attr("placeholder", name);
+    $(".own").text(ownership).attr("placeholder", ownership);
+    $(".id").text(id).attr("placeholder", id);
+    $(".url").html(`<a href="${url}" target="_blank">Giantbomb URL</a>`).attr("placeholder", url);
+    $(".summary").text(summary).attr("placeholder", summary);
+  });
+});
+
+$(".dropdown-toggle").dropdown();
+>>>>>>> Stashed changes
