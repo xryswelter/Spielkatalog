@@ -18,8 +18,7 @@ module.exports = function(app) {
   app.get("/user/:id", function(req, res) {
     db.Game.findAll({ where: { UserId: req.params.id }, include: [db.User] }).then(function(dbExample) {
       res.render("single-users", {
-        examples: dbExample,
-        msg: dbExample[0].User.name + "'s Games!"
+        games: dbExample
       });
     });
   });

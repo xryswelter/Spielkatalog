@@ -52,3 +52,38 @@ main {
   padding-right: 18px;
   padding-left: 18px;
 }
+
+
+h6>img {
+  max-width: 25px;
+}
+
+.ownership {
+  font-family: 'Diplomata SC', cursive;
+  font-size: 16px;
+}
+
+.card {
+  max-width: 100%;
+  height: 400px;
+}
+
+.card-body {
+  padding: 5px 20px;
+}
+
+h5.name,
+h6.own {
+  font-weight: bold;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.mod-btn {
+  max-width: 200px;
+}
+
+.modal-image{
+  max-height: 300px;   
+}

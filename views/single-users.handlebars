@@ -1,31 +1,42 @@
-<div id="home">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
-                <br>
-                <h1>{{msg}}</h1>
-                <br>
-                <ul id="example-list" class="list-group">
-                    {{#each examples}}
-                    <li data-id="{{this.id}}" class="list-group-item">
-                        <div class="media gameMedia">
-                            <img class="mr-3 gamePicture img-thumbnail img-fluid" src="{{this.gamePicture}}" alt="{{this.gameName}}">
-                            <div class="media-body">
-                                <h5 class="mt-0 gameName" id="gameName">{{this.gameName}}</h5>
-                                <p id="gameBio">{{this.summary}}</p>
-                                <p class="ownedStatus">Owned status: {{this.ownedStatus}}</p>
-                                <a href="{{giantbombURL}}" target="_blank">Link to Giant Bomb</a>
-
-                            </div>
-                        </div>
-                        <button class="btn btn-danger float-right editButton" data-id="{{this.id}}">Edit</button>
-                    </li>
-                    {{/each}}
-                </ul>
+{{#each games}}
+<!-- Original Buttons -->
+<button type="button" class="btn mt-5 mod-btn gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">
+    <div class="card">
+        <img class="card-img-top" src={{gamePicture}} alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">
+                <h5 class="mt-0 name">{{gameName}}</h5>
+                <h6 class="mt-0 own">Ownership: <span class="ownership">{{ownedStatus}}</span>
+                </h6>
+                <h6 class="mt-0">Platform: <span class="platform">{{gameConsole}}</span>
+                </h6>
+            </p>
+        </div>
+    </div>
+</button>
+<div class="modal fade" id="modal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{gameName}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image">
+                <div class="text">
+                    <div class="name"></div>
+                    <div class="own"></div>
+                    <div class="id"></div>
+                    <div class="url"></div>
+                    <div class="summary"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    {{/each}}
