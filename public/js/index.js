@@ -7,7 +7,7 @@ var $exampleList = $("#example-list");
 var selectedUser = 0;
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -27,19 +27,19 @@ var API = {
       data: JSON.stringify(game)
     });
   },
-  getGames: function(game){
+  getGames: function (game) {
     return $.ajax({
-      url: "api/gb/"+game,
+      url: "api/gb/" + game,
       type: "GET"
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -48,9 +48,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -78,8 +78,8 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault(); 
+var handleFormSubmit = function (event) {
+  event.preventDefault();
   $("#gameList").empty();
 
   let search = $gameText.val().trim();
@@ -89,7 +89,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.getGames(search).then(function(result) {
+  API.getGames(search).then(function (result) {
     result.forEach(game => {
       console.log(game);
       $("#gameList").append(`
@@ -104,7 +104,7 @@ var handleFormSubmit = function(event) {
                     </div>
                   </div>
       `);
-      
+
     });
   });
 
@@ -114,12 +114,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
@@ -130,7 +130,7 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
-$(document).on("click", ".addButton", function() {
+$(document).on("click", ".addButton", function () {
 
   console.log(`
   ${$(this).attr("data-name")}
@@ -154,11 +154,11 @@ $(document).on("click", ".addButton", function() {
 
   };
 
-  API.saveGame(newGame).then(function(){
+  API.saveGame(newGame).then(function () {
     alert("Added to DB!");
   });
-  
-  
+
+
 });
 
 
@@ -205,8 +205,8 @@ $(document).ready(function () {
   function createAuthorRow(authorData) {
     var newTr = $("<tr>");
     newTr.data("author", authorData);
-    newTr.append("<td>" + authorData.name + "</td>");
-    newTr.append("<td> " + authorData.Games.length + "</td>");
+    newTr.append("<td class='user-name'>" + authorData.name + "</td>");
+    newTr.append("<td class='user-games'> " + authorData.Games.length + "</td>");
     newTr.append("<td><a href='/user/" + authorData.id + "'>Go to Games</a></td>");
     newTr.append("<td><a href='/user/" + authorData.id + "'>Add A Game</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete User</a></td>");
@@ -260,6 +260,7 @@ $(document).ready(function () {
 
 $(document).on("click", ".gameCard", function () {
   let id = $(this).attr("data-id");
+
   console.log(id);
   $.ajax({
     type: "GET",

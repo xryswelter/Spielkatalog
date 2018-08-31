@@ -54,6 +54,7 @@ body>.container {
 }
 
 .media>img {
+
   max-width: 100px;
 }
 
@@ -73,6 +74,7 @@ main {
   padding-right: 18px;
   padding-left: 18px;
 }
+
 
 h6>img {
   max-width: 25px;
@@ -104,6 +106,7 @@ h6.own {
   max-width: 200px;
 }
 
+
 .modal-image {
   max-height: 300px;
 }
@@ -129,3 +132,4 @@ h6.own {
   line-height: 1.5;
   border-radius: .25rem;
 }
+

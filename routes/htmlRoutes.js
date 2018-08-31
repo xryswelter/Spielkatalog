@@ -3,15 +3,16 @@ var path = require("path");
 
 module.exports = function (app) {
   // Load index page
+
   app.get("/", function (req, res) {
+
     console.log("root requested");
     res.render("front-page");
   });
 
-  app.get("/users", function (req, res) {
-    db.User.findAll({}).then(function () {
-      res.render("manage-user");
-    });
+
+  app.get("/users", function(req, res){
+    res.render("manage-user");
 
 
   });
@@ -25,6 +26,7 @@ module.exports = function (app) {
       },
       include: [db.User]
     }).then(function (dbExample) {
+
       res.render("single-users", {
         games: dbExample
       });
