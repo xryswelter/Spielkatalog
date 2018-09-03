@@ -1,23 +1,26 @@
 {{#each games}}
 <!-- Original Buttons -->
-<button type="button" class="btn mt-5 mod-btn gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">
-    <div class="card">
-        <img class="card-img-top" src={{gamePicture}} alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">
-                <h5 class="mt-0 name">{{gameName}}</h5>
-                <h6 class="mt-0 own">Ownership: <span class="ownership">{{ownedStatus}}</span>
-                </h6>
-                <h6 class="mt-0">Platform: <span class="platform">{{gameConsole}}</span>
-                </h6>
-                <h6>
-                    <a href="https://www.giantbomb.com/portal-2/3030-21662/" target="_blank">Giantbomb URL</a>
-                </h6>
 
-            </p>
-        </div>
+
+{{!-- New Setup --}}
+<div class="card">
+    <img class="card-img-top" src={{gamePicture}} alt="Card image cap">
+    <div class="card-body">
+        <p class="card-text">
+            <h5 class="mt-0 name">{{gameName}}</h5>
+            <h6 class="mt-0 own">Ownership: <span class="ownership">{{ownedStatus}}</span>
+            </h6>
+            <h6 class="mt-0">Platform: <span class="platform">{{gameConsole}}</span>
+            </h6>
+        </p>
+        <button type="button" class="btn mt-5 mod-btn gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">View
+            Game
+        </button>
+        <button type="button" class="btn mt-5 edit" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">Edit</button>
     </div>
-</button>
+</div>
+
+{{!-- Modal --}}
 <div class="modal fade" id="modal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -27,49 +30,42 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <img class="modal-image">
-                <div class="holderView">
-                    <div class="name"></div>
-                    <div class="own"></div>
-                    <div class="id"></div>
-                    <div class="url"></div>
-                    <div class="summary"></div>
-                </div>
-                <div class="holderEdit">
-                    <img class="modal-image1">
-                    <form>
-                        <div class="form-group">
-                            <label for="ID">Giant Bomb ID</label>
-                            <input type="text" readonly class="form-control-plaintext id">
-                        </div>
-                        <div class="form-group">
-                            <label for="Name">Name: </label>
-                            <input type="text" class="form-control name1">
-                        </div>
-                        <div class="form-group">
-                            <label for="own">Ownership: </label>
-                            <input type="text" class="form-control own1">
-                        </div>
-                        <div class="form-group">
-                            <label for="url">Url: </label>
-                            <input type="text" class="form-control url1">
-                        </div>
-                        <div class="form-group">
-                            <label for="summary">Summary: </label>
-                            <input type="text" class="form-control summary1">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
-                </div>
+            <img class="modal-image">
+            {{!-- View Format --}}
+            <div class="holderView">
+                <div class="name"></div>
+                <div class="own"></div>
+                <div class="id"></div>
+                <div class="url"></div>
+                <div class="summary"></div>
             </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            {{!-- Edit Format --}}
+            <div class="holderEdit">
+                <form>
+                    <div class="form-group">
+                        <label for="ID">Giant Bomb ID</label>
+                        <input type="text" readonly class="form-control-plaintext id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Name: </label>
+                        <input type="text" class="form-control name1">
+                    </div>
+                    <div class="form-group">
+                        <label for="own">Ownership: </label>
+                        <input type="text" class="form-control own1">
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Url: </label>
+                        <input type="text" class="form-control url1">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Summary: </label>
+                        <input type="text" class="form-control summary1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
             </div>
         </div>
     </div>
-
 </div>
-
-    {{/each}}
+{{/each}}
