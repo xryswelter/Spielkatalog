@@ -37,7 +37,7 @@ var API = {
       data: JSON.stringify(game)
 
 
-    })
+    });
   },
 
   getGames: function (game) {
@@ -202,7 +202,7 @@ $(document).ready(function () {
     };
     API.updateGame(gameUpdate).then(function () {
       alert("Updated in Database!");
-    })
+    });
 
   });
 
@@ -261,7 +261,7 @@ $(document).ready(function () {
       "<td><a href='/user/" + authorData.id + "'>Go to Games</a></td>"
     );
     newTr.append(
-      "<td><a href='/user/" + authorData.id + "'>Add A Game</a></td>"
+      "<td><a href='/add/'>Add A Game</a></td>"
     );
     newTr.append(
       "<td><a style='cursor:pointer;color:red' class='delete-author'>Delete User</a></td>"

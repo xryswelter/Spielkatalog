@@ -106,7 +106,8 @@ h6.own {
 
 
 .modal-image {
-  max-height: 300px;
+  max-width: 300px;
+  margin: auto;
 }
 
 .selectStyle {  
@@ -133,4 +134,12 @@ h6.own {
 
 .card-img-top{
   height: 300px;
+}
+
+.gameMedia{
+  margin-bottom: 10px;
+}
+
+.gamePicture{
+  height: 200px;
 }
