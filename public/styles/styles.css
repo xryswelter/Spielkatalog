@@ -143,3 +143,18 @@ h6.own {
 .gamePicture{
   height: 200px;
 }
+
+.modal-content{
+  background-color: #53A6FF;
+
+}
+
+.modal-header{
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.holderView{
+  background-color: #E8DDCA;
+  border-radius: .3rem;
+}

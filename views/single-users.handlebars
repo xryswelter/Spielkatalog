@@ -2,7 +2,7 @@
    <div class="row mt-5">
         {{#each games}}
         <!-- Original Buttons -->
-        <div class="card" style="width: 18rem; display: inline-block;">
+        <div class="card animated bounceInUp" style="width: 18rem; display: inline-block;">
             <img class="card-img-top" src="{{gamePicture}}" alt="{{gameName}}">
             <div class="card-body">
                 <h5 class="card-title">{{gameName}}</h5>
@@ -18,7 +18,7 @@
 {{!-- Edit Modal --}}
 <div class="modal fade" id="edit-{{id}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content p-2">
             <div class="modal-header">
                 <h5 class="modal-title" id="edit">{{gameName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -29,27 +29,27 @@
             <div class="holderEdit">
                 <form class="editForm" id="editForm-{{id}}" data-id="{{id}}">
                     <div class="form-group">
-                        <label for="ID">Internal ID</label>
+                        <label for="ID"><strong>Internal ID</strong></label>
                         <input type="text" readonly class="form-control-plaintext idFor{{id}}" placeholder = "{{id}}">
                     </div>
                     <div class="form-group">
-                        <label for="Name">Name: </label>
+                        <label for="Name"><strong>Name:</strong> </label>
                         <input type="text" class="form-control nameFor{{id}}" value = "{{gameName}}">
                     </div>
                     <div class="form-group">
-                        <label for="own">Ownership: </label>
+                        <label for="own"><strong>Ownership:</strong> </label>
                         <input type="text" class="form-control ownFor{{id}}" value = "{{ownedStatus}}">
                     </div>
                     <div class="form-group">
-                        <label for="url">Url: </label>
+                        <label for="url"><strong>Url:</strong> </label>
                         <input type="text" class="form-control urlFor{{id}}" value = "{{giantbombURL}}">
                     </div>
                     <div class="form-group">
-                        <label for="summary">Summary: </label>
+                        <label for="summary"><strong>Summary:</strong> </label>
                         <input type="text" class="form-control summary{{id}}" value = "{{summary}}">
                     </div>
                     <div class="form-group">
-                        <label for="summary">Console: </label>
+                        <label for="summary"><strong>Console:</strong> </label>
                         <input type="text" class="form-control console{{id}}" value="{{gameConsole}}">
                     </div>
                     <button type="submit" class="btn btn-primary editSubmit">Update</button>
@@ -62,7 +62,7 @@
 {{!-- View Modal --}}
 <div class="modal fade" id="modal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content p-2">
             <div class="modal-header">
                 <h5 class="modal-title" id="view">{{gameName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -70,7 +70,7 @@
                 </button>
             </div>
             <img class="modal-image" src = "{{gamePicture}}">
-            <div class="holderView">
+            <div class="holderView mt-4 p-2">
                 <div class="name">Name: {{gameName}}</div>
                 <div class="own">Owned: {{ownedStatus}}</div>
                 <div class="id">Giant Bomb ID: {{giantbombID}}</div>
