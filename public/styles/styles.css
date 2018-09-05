@@ -53,10 +53,6 @@ body>.container {
   color: #8B0CE8;
 }
 
-.media>img {
-
-  max-width: 100px;
-}
 
 main {
   margin-bottom: 80px;
@@ -87,7 +83,9 @@ h6>img {
 
 .card {
   max-width: 100%;
-  height: 400px;
+  height: 500px;
+  margin: 20px;
+  margin-top: 0px;
 }
 
 .card-body {
@@ -111,7 +109,7 @@ h6.own {
   max-height: 300px;
 }
 
-.selectStyle {
+.selectStyle {  
   color: #28a745;
   margin-left: 10px;
   background-color: transparent;
@@ -133,3 +131,6 @@ h6.own {
   border-radius: .25rem;
 }
 
+.card-img-top{
+  height: 300px;
+}

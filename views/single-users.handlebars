@@ -1,75 +1,88 @@
-{{#each games}}
-<!-- Original Buttons -->
-<button type="button" class="btn mt-5 mod-btn gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">
-    <div class="card">
-        <img class="card-img-top" src={{gamePicture}} alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">
-                <h5 class="mt-0 name">{{gameName}}</h5>
-                <h6 class="mt-0 own">Ownership: <span class="ownership">{{ownedStatus}}</span>
-                </h6>
-                <h6 class="mt-0">Platform: <span class="platform">{{gameConsole}}</span>
-                </h6>
-                <h6>
-                    <a href="https://www.giantbomb.com/portal-2/3030-21662/" target="_blank">Giantbomb URL</a>
-                </h6>
 
-            </p>
+   <div class="row mt-5">
+        {{#each games}}
+        <!-- Original Buttons -->
+        <div class="card" style="width: 18rem; display: inline-block;">
+            <img class="card-img-top" src="{{gamePicture}}" alt="{{gameName}}">
+            <div class="card-body">
+                <h5 class="card-title">{{gameName}}</h5>
+                <p class="card-text">Owned Status: {{ownedStatus}}<br>
+                     Platform: {{gameConsole}}<br>
+                    <a href="{{giantbombURL}}" target="_blank">Giant Bomb URL</a>
+                </p>
+                <button type="button" class=" btn btn-outline-success gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">View</button>
+                <button type="button" class="btn btn-outline-danger gameCard" data-toggle="modal" data-target="#edit-{{id}}" data-id="{{id}}">Edit</button>
+            </div>
         </div>
-    </div>
-</button>
-<div class="modal fade" id="modal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+{{!-- Edit Modal --}}
+<div class="modal fade" id="edit-{{id}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{gameName}}</h5>
+                <h5 class="modal-title" id="edit">{{gameName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <img class="modal-image">
-                <div class="holderView">
-                    <div class="name"></div>
-                    <div class="own"></div>
-                    <div class="id"></div>
-                    <div class="url"></div>
-                    <div class="summary"></div>
-                </div>
-                <div class="holderEdit">
-                    <img class="modal-image1">
-                    <form>
-                        <div class="form-group">
-                            <label for="ID">Giant Bomb ID</label>
-                            <input type="text" readonly class="form-control-plaintext id">
-                        </div>
-                        <div class="form-group">
-                            <label for="Name">Name: </label>
-                            <input type="text" class="form-control name1">
-                        </div>
-                        <div class="form-group">
-                            <label for="own">Ownership: </label>
-                            <input type="text" class="form-control own1">
-                        </div>
-                        <div class="form-group">
-                            <label for="url">Url: </label>
-                            <input type="text" class="form-control url1">
-                        </div>
-                        <div class="form-group">
-                            <label for="summary">Summary: </label>
-                            <input type="text" class="form-control summary1">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
-                </div>
-            </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            <img class="modal-image"src = "{{gamePicture}}">
+            <div class="holderEdit">
+                <form class="editForm" id="editForm-{{id}}" data-id="{{id}}">
+                    <div class="form-group">
+                        <label for="ID">Internal ID</label>
+                        <input type="text" readonly class="form-control-plaintext idFor{{id}}" placeholder = "{{id}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Name: </label>
+                        <input type="text" class="form-control nameFor{{id}}" value = "{{gameName}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="own">Ownership: </label>
+                        <input type="text" class="form-control ownFor{{id}}" value = "{{ownedStatus}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Url: </label>
+                        <input type="text" class="form-control urlFor{{id}}" value = "{{giantbombURL}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Summary: </label>
+                        <input type="text" class="form-control summary{{id}}" value = "{{summary}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Console: </label>
+                        <input type="text" class="form-control console{{id}}" value="{{gameConsole}}">
+                    </div>
+                    <button type="submit" class="btn btn-primary editSubmit">Update</button>
+                </form>
             </div>
         </div>
     </div>
-
 </div>
 
-    {{/each}}
+{{!-- View Modal --}}
+<div class="modal fade" id="modal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="view">{{gameName}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <img class="modal-image" src = "{{gamePicture}}">
+            <div class="holderView">
+                <div class="name">{{gameName}}</div>
+                <div class="own">{{ownedStatus}}</div>
+                <div class="id">{{giantbombID}}</div>
+                <div class="url"><a href="{{giantbombURL}}">{{giantbombURL}}</a></div>
+                <div class="summary">{{summary}}</div>
+                <div class="gameConsole">{{gameConsole}}</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+        
+        
+        {{/each}}
+        </div>

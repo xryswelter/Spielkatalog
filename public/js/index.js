@@ -27,6 +27,19 @@ var API = {
       data: JSON.stringify(game)
     });
   },
+  updateGame: function (game) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "PUT",
+      url: "../api/games",
+      data: JSON.stringify(game)
+
+
+    })
+  },
+
   getGames: function (game) {
     return $.ajax({
       url: "api/gb/" + game,
@@ -84,7 +97,7 @@ var handleFormSubmit = function (event) {
 
   let search = $gameText.val().trim();
 
-  if (!(search)) {
+  if (!search) {
     alert("You must enter a game!");
     return;
   }
@@ -94,17 +107,22 @@ var handleFormSubmit = function (event) {
       console.log(game);
       $("#gameList").append(`
       <div class="media gameMedia">
-                    <img class="mr-3 gamePicture" src="${game.gamePicture}" alt="Generic placeholder image">
+                    <img class="mr-3 gamePicture" src="${
+  game.gamePicture
+}" alt="Generic placeholder image">
                     <div class="media-body">
                       <h5 class="mt-0" id="gameName">${game.gameName}</h5>
                       <p id="gameBio">${game.gameBio}</p>
-                      <p><button class="btn btn-outline-danger mt-2 addButton" data-name="${game.gameName}" data-picture="${game.gamePicture}"
-                      data-bio='${game.gameBio}' data-giantbombID="${game.giantbombID}" data-gbURL="${game.gbURL}" data-gameConsole="${game.gameConsole}"
+                      <p><button class="btn btn-outline-danger mt-2 addButton" data-name="${
+  game.gameName
+}" data-picture="${game.gamePicture}"
+                      data-bio='${game.gameBio}' data-giantbombID="${
+  game.giantbombID
+}" data-gbURL="${game.gbURL}" data-gameConsole="${game.gameConsole}"
                       type="submit">Add</button></p>
                     </div>
                   </div>
       `);
-
     });
   });
 
@@ -124,14 +142,11 @@ var handleDeleteBtnClick = function () {
   });
 };
 
-
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-
 $(document).on("click", ".addButton", function () {
-
   console.log(`
   ${$(this).attr("data-name")}
   ${$(this).attr("data-picture")}
@@ -151,20 +166,51 @@ $(document).on("click", ".addButton", function () {
     gameConsole: $(this).attr("data-gameConsole"),
     ownedStatus: "Owned",
     UserId: selectedUser
-
   };
 
   API.saveGame(newGame).then(function () {
     alert("Added to DB!");
   });
-
-
 });
-
 
 //plagarismo
 
+
+
 $(document).ready(function () {
+  $(".editForm").submit(function (event) {
+    event.preventDefault();
+    let formID = $(this).attr("data-id");
+    let putName = $(".nameFor" + formID).val();
+    let putStatus = $(".ownFor" + formID).val();
+    let putURL = $(".urlFor" + formID).val();
+    let putSummary = $(".summary" + formID).val();
+    let putConsole = $(".console" + formID).val();
+    console.log(`Putting...
+    Name: ${putName}
+    Status: ${putStatus}
+    URL: ${putURL}
+    Summary: ${putSummary}
+    Console: ${putConsole}
+    `);
+    let gameUpdate = {
+      id: formID,
+      gameName: putName,
+      giantbombURL: putURL,
+      ownedStatus: putStatus,
+      gameConsole: putConsole
+    };
+    API.updateGame(gameUpdate).then(function () {
+      alert("Updated in Database!");
+    })
+
+  });
+
+  // $(".editSubmit").on("click", function(){
+  //   event.preventDefault();
+  //   console.log($(this).parent().serialize());
+  // })
+
   $("select").on("change", function () {
     selectedUser = this.value;
   });
@@ -184,21 +230,23 @@ $(document).ready(function () {
   function handleAuthorFormSubmit(event) {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
+    if (
+      !nameInput
+      .val()
+      .trim()
+      .trim()
+    ) {
       return;
     }
     // Calling the upsertAuthor function and passing in the value of the name input
     upsertAuthor({
-      name: nameInput
-        .val()
-        .trim()
+      name: nameInput.val().trim()
     });
   }
 
   // A function for creating an author. Calls getAuthors upon completion
   function upsertAuthor(authorData) {
-    $.post("/api/users", authorData)
-      .then(getAuthors);
+    $.post("/api/users", authorData).then(getAuthors);
   }
 
   // Function for creating a new list row for authors
@@ -206,10 +254,18 @@ $(document).ready(function () {
     var newTr = $("<tr>");
     newTr.data("author", authorData);
     newTr.append("<td class='user-name'>" + authorData.name + "</td>");
-    newTr.append("<td class='user-games'> " + authorData.Games.length + "</td>");
-    newTr.append("<td><a href='/user/" + authorData.id + "'>Go to Games</a></td>");
-    newTr.append("<td><a href='/user/" + authorData.id + "'>Add A Game</a></td>");
-    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete User</a></td>");
+    newTr.append(
+      "<td class='user-games'> " + authorData.Games.length + "</td>"
+    );
+    newTr.append(
+      "<td><a href='/user/" + authorData.id + "'>Go to Games</a></td>"
+    );
+    newTr.append(
+      "<td><a href='/user/" + authorData.id + "'>Add A Game</a></td>"
+    );
+    newTr.append(
+      "<td><a style='cursor:pointer;color:red' class='delete-author'>Delete User</a></td>"
+    );
     return newTr;
   }
 
@@ -227,7 +283,10 @@ $(document).ready(function () {
 
   // A function for rendering the list of authors to the page
   function renderAuthorList(rows) {
-    authorList.children().not(":last").remove();
+    authorList
+      .children()
+      .not(":last")
+      .remove();
     authorContainer.children(".alert").remove();
     if (rows.length) {
       console.log(rows);
@@ -247,39 +306,17 @@ $(document).ready(function () {
 
   // Function for handling what happens when the delete button is pressed
   function handleDeleteButtonPress() {
-    var listItemData = $(this).parent("td").parent("tr").data("author");
+    var listItemData = $(this)
+      .parent("td")
+      .parent("tr")
+      .data("author");
     var id = listItemData.id;
     $.ajax({
       method: "DELETE",
       url: "/api/users/" + id
-    })
-      .then(getAuthors);
+    }).then(getAuthors);
   }
 });
 
-
-$(document).on("click", ".gameCard", function () {
-  let id = $(this).attr("data-id");
-
-  console.log(id);
-  $.ajax({
-    type: "GET",
-    url: `/api/games/${id}`
-  }).then(results => {
-    console.log(results);
-    let name = results.gameName;
-    let summary = results.summary;
-    let pic = results.gamePicture;
-    let id = results.id;
-    let url = results.giantbombURL;
-    let ownership = results.ownedStatus;
-    $(".modal-image").attr("src", pic).attr("placeholder", pic);
-    $(".name").text(name).attr("placeholder", name);
-    $(".own").text(ownership).attr("placeholder", ownership);
-    $(".id").text(id).attr("placeholder", id);
-    $(".url").html(`<a href="${url}" target="_blank">Giantbomb URL</a>`).attr("placeholder", url);
-    $(".summary").text(summary).attr("placeholder", summary);
-  });
-});
 
 $(".dropdown-toggle").dropdown();
