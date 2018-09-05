@@ -144,6 +144,10 @@ h6.own {
   height: 200px;
 }
 
+.catalog-card{
+  background-color: #E8DDCA;
+}
+
 .modal-content{
   background-color: #53A6FF;
 
@@ -157,4 +161,8 @@ h6.own {
 .holderView{
   background-color: #E8DDCA;
   border-radius: .3rem;
+}
+
+.purple-text{
+  color: #8B0CE8;
 }
