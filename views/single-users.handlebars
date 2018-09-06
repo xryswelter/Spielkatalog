@@ -11,6 +11,7 @@
                 </p>
                 <button type="button" class=" btn btn-outline-success gameCard" data-toggle="modal" data-target="#modal-{{id}}" data-id="{{id}}">View</button>
                 <button type="button" class="btn btn-outline-danger gameCard" data-toggle="modal" data-target="#edit-{{id}}" data-id="{{id}}">Edit</button>
+                <button type="button" class="btn btn-danger gameCard" onclick="deleteGame({{id}})" data-id="{{id}}">Delete?</button>
             </div>
         </div>
         {{!-- Edit Modal --}}

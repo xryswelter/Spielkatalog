@@ -40,6 +40,18 @@ var API = {
     });
   },
 
+  deleteGame: function (game) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "DELETE",
+      url: "../api/games/" + game,
+
+
+    });
+  },
+
   getGames: function (game) {
     return $.ajax({
       url: "api/gb/" + game,
@@ -318,5 +330,18 @@ $(document).ready(function () {
   }
 });
 
+function deleteGame(id) {
+  let x = confirm("Are you sure you want to delete this game?");
+  if (x === true) {
+    API.deleteGame(id).then(function (result) {
+      alert("Deleted!");
+    });
+  } else {
+    return;
+
+  }
+
+
+};
 
 $(".dropdown-toggle").dropdown();
