@@ -1,38 +1,44 @@
-# Project Starter
+# Spielkatalog
 
-In this activity we will add the provided boilerplate to group project repos.
+[Link to Spielkatalog on Heroku](http://spielkatalog.herokuapp.com)
 
-## Instructions
+Spielkatalog is a simple, modern tool to help track and organize your video game collection.
 
-* Only one member of each group should complete this activity while the others watch.
+## Screenshots
 
-* Copy the entire [Unsolved](Unsolved) folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
+### Homepage
+* Explanation about the site along with links to User and Game Search pages
 
-* Rename the copied "Unsolved" folder to the name of your project.
+![Homepage](public/images/screenshot-home-page.jpg)
 
-* Open the copied project folder's `package.json` file and change its `name` property to the name of your project.
+### Add Game Page
+* Allows users to add using a search function to find the games they own, borrow, or want to buy
 
-* CD to the root of the copied project folder with your terminal and run the following commands:
+![Add Game Page](public/images/screenshot-add-game-page.jpg)
 
-  ```
-  git init
-  git add .
-  git commit -m "Initial commit"
-  ```
+### Add User Page
+* Allows users to be added to the database for future cataloging
 
-* Then copy the GitHub repo's remote SSH URL (the same URL you'd use to clone the repo).
+![User Page](public/images/screenshot-user-page.jpg)
 
-* Run the following commands in your terminal, replacing <remote-url> with your GitHub repo's remote SSH URL.
+### User Catalog Page
+* Allows users to see all the games they currently have in their catalog
 
-  ```
-  git remote add origin <remote-url>
-  git push origin master
-  ```
+![User Catalog Page](public/images/screenshot-user-catalog-page.jpg)
 
-* If completed successfully you should see all of the files uploaded to GitHub.
 
-* All other group members should now clone the repo.
+## Built With
 
-* Discuss as a group:
+* html, css, javascript, jquery, ajax, bootstrap, handlebars, node, mysql, giantBomb API
+* npm packages: body-parser, dotenv, express, express-handlebars, giantbomb, mysql2, sequelize
 
-  * How would you now add changes to this project?
+## Authors
+
+* **Chad Balash** - [Profile](https://github.com/chad-balash)
+* **Zane Neuschuler** - [Profile](https://github.com/zaneneuschuler)
+* **Murat Tartan** - [Profile](https://github.com/mtartan)
+* **Chris Welter** - [Profile](https://github.com/xryswelter)
+
+## Acknowledgments
+
+* [GiantBomb.com](https://www.giantbomb.com/api/)
