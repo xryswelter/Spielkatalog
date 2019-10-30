@@ -339,9 +339,4 @@ function deleteGame(id) {
   } else {
     return;
 
-  }
-
-
-};
-
 $(".dropdown-toggle").dropdown();

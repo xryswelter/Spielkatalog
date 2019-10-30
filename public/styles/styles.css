@@ -71,14 +71,13 @@ main {
   padding-left: 18px;
 }
 
-
-h6>img {
-  max-width: 25px;
+/* Xrys' content */
+h6 > img{
+max-width:25px;
 }
-
-.ownership {
+.ownership{
   font-family: 'Diplomata SC', cursive;
-  font-size: 16px;
+  font-size:16px;
 }
 
 .card {
@@ -87,23 +86,18 @@ h6>img {
   margin: 20px;
   margin-top: 0px;
 }
-
-.card-body {
-  padding: 5px 20px;
+.card-body{
+  padding:5px 20px;
 }
-
-h5.name,
-h6.own {
+h5.name, h6.own {
   font-weight: bold;
   text-align: center;
   word-wrap: break-word;
   white-space: normal;
 }
-
-.mod-btn {
+.mod-btn{
   max-width: 200px;
 }
-
 
 .modal-image {
   max-width: 300px;
